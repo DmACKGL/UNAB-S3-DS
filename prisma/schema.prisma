@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model medicamento {
+  id          Int    @id @default(autoincrement())
+  descripcion String @db.VarChar(255)
+  formato     String @db.VarChar(255)
+  stock       Int
+}
+
+model paciente {
+  rut         Int    @id
+  nombre      String @db.VarChar(255)
+  fono        Int
+  edad        Int
+  diagnostico String @db.VarChar(255)
+}
+
+model receta {
+  id             Int      @id
+  id_medicamento Int
+  rut_paciente   Int
+  cantidad       Int
+  fecha_receta   DateTime @db.DateTime(0)
+}
