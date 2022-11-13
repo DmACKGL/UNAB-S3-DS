@@ -5,7 +5,7 @@ import {
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-export default function Medicamentos() {
+export default function Pacientes() {
     const [pacientes, setPacientes] = useState([]);
     const [isLoading, setLoading] = useState(true)
 

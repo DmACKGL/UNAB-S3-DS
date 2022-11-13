@@ -7,7 +7,6 @@ export default function NewReceta({ medicamentos }) {
     const handeMedChange = (e) => {
         setMedId(e.target.value);
         setStock(e.target.options[e.target.selectedIndex].getAttribute('data-stock'));
-        // set input qty to 1
         document.getElementById('qty').value = 1;
     }
 
@@ -37,11 +36,11 @@ export default function NewReceta({ medicamentos }) {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="qty" className="form-label">Cantidad</label>
-                            <input defaultValue={1} type="number" className="form-control" id="qty" aria-describedby="qty" min={1} max={stock} required={true} />
+                            <input defaultValue={1} type="number" className="form-control" id="qty" aria-describedby="qty" min={1} max={stock}/>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="date" className="form-label">Fecha Receta</label>
-                            <input type="date" className="form-control" id="date" aria-describedby="date" required={true} />
+                            <input type="date" className="form-control" id="date" aria-describedby="date" required={true}/>
                         </div>
                         <button type="submit" className="btn btn-primary">Ingresar</button>
                     </form>

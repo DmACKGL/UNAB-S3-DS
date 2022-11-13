@@ -7,9 +7,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 export default function Medicamento() {
-
-/* A React Hook that allows us to use state in a functional component. */
-/* A hook that allows us to use state in a functional component. */
     const [paciente, setPacientes] = useState([]);
     const [isLoading, setLoading] = useState(true)
 
@@ -47,7 +44,7 @@ export default function Medicamento() {
               </div>
             </div>
             <hr/>
-            
+
           </div>
           <div className="col"/>
         </div>
