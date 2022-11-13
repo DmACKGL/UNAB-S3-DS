@@ -1,0 +1,26 @@
+[
+    {
+        "cod_medicamento": 1,
+        "descripcion": "ACETAMINOFEN 500 MG",
+        "formato": "TABLETA",
+        "stock": 2
+    },
+    {
+        "cod_medicamento": 2,
+        "descripcion": "CLONAZEPAM 2 MG",
+        "formato": "TABLETA",
+        "stock": 20
+    },
+    {
+        "cod_medicamento": 3,
+        "descripcion": "PARACETAMOL 400 MG",
+        "formato": "TABLETA",
+        "stock": 30
+    },
+    {
+        "cod_medicamento": 4,
+        "descripcion": "IBUPROFENO 400 MG",
+        "formato": "TABLETA",
+        "stock": 1
+    }
+]
