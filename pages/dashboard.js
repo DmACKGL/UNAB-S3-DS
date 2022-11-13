@@ -39,7 +39,7 @@ export default function Dashboard() {
                             <p>Botones de acciones rapidas</p>
                             <div className="d-grid gap-2">
                                 <button className="btn btn-primary" type="button">Recetas</button>
-                                <button className="btn btn-primary" type="button">Pacientes</button>
+                                <Link href="/pacientes" className="btn btn-primary">Pacientes</Link>
                                 <Link href="/medicamentos" className="btn btn-primary">Medicamentos</Link>
                             </div>
                         </div>

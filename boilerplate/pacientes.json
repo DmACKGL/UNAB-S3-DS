@@ -1,0 +1,37 @@
+[
+    {
+        "rut": "204839565",
+        "nombre": "Juan Perez",
+        "fono": "123456789",
+        "edad": "25",
+        "diagnostico": "COVID-19"
+    },
+    {
+        "rut": "24429539",
+        "nombre": "Pedro Perez",
+        "fono": "123456789",
+        "edad": "15",
+        "diagnostico": "Resfrio comun"
+    },
+    {
+        "rut": "180601031",
+        "nombre": "Maria Perez",
+        "fono": "123456789",
+        "edad": "30",
+        "diagnostico": "Migraña cronica"
+    },
+    {
+        "rut": "187487358",
+        "nombre": "Jose Perez",
+        "fono": "123456789",
+        "edad": "45",
+        "diagnostico": "COVID-19"
+    },
+    {
+        "rut": "265382371",
+        "nombre": "Maria Jose Perez",
+        "fono": "123456789",
+        "edad": "35",
+        "diagnostico": "COVID-19"
+    }
+]

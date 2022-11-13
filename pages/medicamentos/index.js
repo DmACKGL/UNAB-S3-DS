@@ -3,9 +3,9 @@ import {
     faSpinner
 } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Medicamentos() {
-    // get medicamentos and display them as table
     const [medicamentos, setMedicamentos] = useState([]);
     const [isLoading, setLoading] = useState(true)
 
@@ -36,6 +36,7 @@ export default function Medicamentos() {
                         <th scope="col">Descripcion</th>
                         <th scope="col">Formato</th>
                         <th scope="col">Stock</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,6 +46,9 @@ export default function Medicamentos() {
                             <td>{medicamento.descripcion}</td>
                             <td>{medicamento.formato}</td>
                             <td>{medicamento.stock}</td>
+                            <td>
+                                <Link href={`/medicamentos/${medicamento.cod_medicamento}`} className="btn btn-primary">Ver</Link>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
