@@ -14,7 +14,7 @@ export default function Medicamento() {
 
     useEffect(() => {
         const { id } = router.query
-        fetch(`http://localhost:3000/api/medicamentos/${id}`)
+        fetch(`/api/medicamentos/${id}`)
             .then(res => res.json())
             .then(data => {
                 setMedicamento(data)
