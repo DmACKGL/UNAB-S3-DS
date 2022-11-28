@@ -4,7 +4,7 @@ export default function NewReceta({ medicamentos }) {
     const [medId, setMedId] = useState(0);
     const [stock, setStock] = useState(0);
 
-    const handeMedChange = (e) => {
+    const handleMedChange = (e) => {
         setMedId(e.target.value);
         setStock(e.target.options[e.target.selectedIndex].getAttribute('data-stock'));
         document.getElementById('qty').value = 1;
@@ -29,7 +29,7 @@ export default function NewReceta({ medicamentos }) {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="exampleInputEmail1" className="form-label">Medicamento</label>
-                            <select className="form-select" aria-label="Medicamento" name="cod_medicamento" onChange={handeMedChange} defaultValue={'Selecciona un medicamento'} required={true}>
+                            <select className="form-select" aria-label="Medicamento" name="cod_medicamento" onChange={handleMedChange} defaultValue={'Selecciona un medicamento'} required={true}>
                                 {medicamentos.map((medicamento)  => (
                                     medicamento.stock > 0 ? <option key={medicamento.cod_medicamento} value={medicamento.cod_medicamento} data-stock={medicamento.stock}>{medicamento.descripcion}</option> : null
                                 ))}
