@@ -25,7 +25,7 @@ model paciente {
 }
 
 model receta {
-  cod_receta      Int         @id
+  cod_receta      Int         @id @default(autoincrement())
   cod_medicamento Int
   rut_paciente    BigInt
   cantidad        Int

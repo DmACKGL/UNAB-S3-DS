@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2022 at 02:22 AM
+-- Generation Time: Nov 28, 2022 at 05:57 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -84,7 +84,7 @@ ALTER TABLE `paciente`
 ALTER TABLE `receta`
   ADD PRIMARY KEY (`cod_receta`),
   ADD KEY `rec_med` (`cod_medicamento`),
-  ADD KEY `red_rut` (`rut_paciente`);
+  ADD KEY `rec_rut` (`rut_paciente`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -94,7 +94,19 @@ ALTER TABLE `receta`
 -- AUTO_INCREMENT for table `medicamento`
 --
 ALTER TABLE `medicamento`
-  MODIFY `cod_medicamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cod_medicamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+--
+-- AUTO_INCREMENT for table `paciente`
+--
+ALTER TABLE `paciente`
+  MODIFY `rut` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265382372;
+
+--
+-- AUTO_INCREMENT for table `receta`
+--
+ALTER TABLE `receta`
+  MODIFY `cod_receta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -105,7 +117,7 @@ ALTER TABLE `medicamento`
 --
 ALTER TABLE `receta`
   ADD CONSTRAINT `rec_med` FOREIGN KEY (`cod_medicamento`) REFERENCES `medicamento` (`cod_medicamento`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `red_rut` FOREIGN KEY (`rut_paciente`) REFERENCES `paciente` (`rut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `rec_rut` FOREIGN KEY (`rut_paciente`) REFERENCES `paciente` (`rut`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
