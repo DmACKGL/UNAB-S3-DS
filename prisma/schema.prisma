@@ -8,24 +8,31 @@ datasource db {
 }
 
 model medicamento {
-  id          Int    @id @default(autoincrement())
-  descripcion String @db.VarChar(255)
-  formato     String @db.VarChar(255)
-  stock       Int
+  cod_medicamento Int      @id @default(autoincrement())
+  descripcion     String   @db.VarChar(255)
+  formato         String   @db.VarChar(255)
+  stock           Int
+  receta          receta[]
 }
 
 model paciente {
-  rut         Int    @id
-  nombre      String @db.VarChar(255)
+  rut         BigInt   @id @default(autoincrement())
+  nombre      String   @db.VarChar(255)
   fono        Int
   edad        Int
-  diagnostico String @db.VarChar(255)
+  diagnostico String   @db.VarChar(255)
+  receta      receta[]
 }
 
 model receta {
-  id             Int      @id
-  id_medicamento Int
-  rut_paciente   Int
-  cantidad       Int
-  fecha_receta   DateTime @db.DateTime(0)
+  cod_receta      Int         @id
+  cod_medicamento Int
+  rut_paciente    BigInt
+  cantidad        Int
+  fecha_receta    DateTime    @db.Date
+  medicamento     medicamento @relation(fields: [cod_medicamento], references: [cod_medicamento], onDelete: Cascade, map: "rec_med")
+  paciente        paciente    @relation(fields: [rut_paciente], references: [rut], onDelete: Cascade, map: "rec_rut")
+
+  @@index([cod_medicamento], map: "rec_med")
+  @@index([rut_paciente], map: "rec_rut")
 }
