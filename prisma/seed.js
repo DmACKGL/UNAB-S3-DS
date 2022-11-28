@@ -62,6 +62,7 @@ async function clearDatabase() {
     await prisma.medicamento.deleteMany()
     await prisma.paciente.deleteMany()
     await prisma.receta.deleteMany()
+    await prisma.$executeRaw`ALTER TABLE receta AUTO_INCREMENT = 1`
     console.log('Cleared database')
 }
 
