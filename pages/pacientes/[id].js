@@ -14,6 +14,7 @@ export default function Medicamento() {
 
     useEffect(() => {
         const { id } = router.query
+        if (!id) return;
         fetch(`/api/pacientes/${id}`)
             .then(res => res.json())
             .then(data => {
@@ -44,7 +45,6 @@ export default function Medicamento() {
               </div>
             </div>
             <hr/>
-
           </div>
           <div className="col"/>
         </div>

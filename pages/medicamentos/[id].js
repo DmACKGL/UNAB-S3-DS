@@ -14,6 +14,7 @@ export default function Medicamento() {
 
     useEffect(() => {
         const { id } = router.query
+        if (!id) return;
         fetch(`/api/medicamentos/${id}`)
             .then(res => res.json())
             .then(data => {

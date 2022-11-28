@@ -21,18 +21,23 @@ export default function Recetas() {
         return rutWithDash;
     }
 
+    const convertToDate = (date) => {
+        const day = date.slice(8, 10);
+        const month = date.slice(5, 7);
+        const year = date.slice(0, 4);
+        return `${day}-${month}-${year}`;
+    }
+
     useEffect(() => {
         fetch('/api/recetas')
             .then(res => res.json())
             .then(data => {
-                setRecetas(data)
-                fetch('/api/medicamentos')
-                    .then(res => res.json())
-                    .then(data => {
-                        setMedicamentos(data)
-                        setLoading(false)
-                    })
-            })
+                setRecetas(data);
+                setMedicamentos(data.map(receta => receta.medicamento));
+                setLoading(false);
+            }
+        );
+
     }, []); 
 
     if (isLoading || !medicamentos) return (
@@ -64,9 +69,9 @@ export default function Recetas() {
                             <td>{convertToRut(receta.rut_paciente)}</td>
                             <td>{transformMedIdToName(receta.cod_medicamento)}</td>
                             <td>{receta.cantidad}</td>
-                            <td>{receta.fecha_receta}</td>
+                            <td>{convertToDate(receta.fecha_receta)}</td>
                             <td>
-                                <Link href={`/medicamentos/${receta.cod_receta}`} className="btn btn-primary">Ver</Link>
+                                <Link href={`/recetas/${receta.cod_receta}`} className="btn btn-primary">Ver</Link>
                             </td>
                         </tr>
                     ))}

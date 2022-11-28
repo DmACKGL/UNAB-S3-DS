@@ -1,5 +1,5 @@
-import path from 'path';
-import { promises as fs } from 'fs';
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
     const { id } = req.query;
@@ -9,10 +9,12 @@ export default async function handler(req, res) {
         return;
     }
 
-    const jsonDirectory = path.join(process.cwd(), 'boilerplate');
-    const fileContents = await fs.readFile(jsonDirectory + '/medicamentos.json', 'utf8');
-    const medicamentos = JSON.parse(fileContents);
-    const medicamento = medicamentos.find(medicamento => medicamento.cod_medicamento == id);
+    const medicamento = await prisma.medicamento.findUnique({
+        where: {
+            cod_medicamento: parseInt(id)
+        }
+    });
+    
     res.status(200).json(medicamento);
 }
   

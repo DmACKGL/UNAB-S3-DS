@@ -1,5 +1,6 @@
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
+
 const medicamentos = require('../boilerplate/medicamentos.json')
 const pacientes = require('../boilerplate/pacientes.json')
 const recetas = require('../boilerplate/recetas.json')
